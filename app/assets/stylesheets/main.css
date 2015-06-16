@@ -1,2 +1,41 @@
-.ticketSection {
+body {
+  background: #A3AEB0;
+}
+
+input {
+  -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+  -moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+  box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+  color:#333;
+  background-color:#FA2;
+  border-radius:5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border:none;
+  font-family:'Helvetica Neue',Arial,sans-serif;
+  font-size:16px;
+  font-weight:700;
+  height:32px;
+  padding:4px 16px;
+  text-shadow:#FE6 0 1px 0
+}
+
+a {
+  color: white;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
 }
