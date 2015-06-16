@@ -9,8 +9,11 @@ RSpec.describe "Dashboard" do
     expect(current_path).to eq(new_board_path)
 
     fill_in("board[title]", with: "Code Retreat")
-    click_link_or_button("Submit")
 
-    #expect(current_path).to eq(board_path(Board.first))
+    expect do
+      click_link_or_button("Create Board")
+    end.to change { Board.count }.from(0).to(1)
+
+    expect(current_path).to eq(board_path(Board.first))
   end
 end
