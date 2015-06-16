@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get "/", to: "dashboard#index", as: :root
+  get "/", to: "boards#index", as: :root
+
+  resources :boards, only: [:new, :create, :index]
 end
