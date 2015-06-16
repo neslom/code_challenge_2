@@ -4,7 +4,7 @@
       <%= f.text_field :title %>
       <%= f.text_area :description %>
       <%= f.select(:status, [["Backlog", "Backlog"], ["Current Sprint", "Current Sprint"], ["In Progress", "In Progress"], ["Done", "Done"]]) %>
-      <%= f.hidden_field :board, value: params[:board] %>
+      <%= f.hidden_field :board_id, value: params[:board] %>
       <%= f.submit %>
     <% end %>
   </div>

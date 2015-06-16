@@ -7,7 +7,7 @@ class TicketsController < ApplicationController
 
     if @ticket.save
       flash[:notice] = "Yay your ticket was saved!"
-      redirect_to @ticket.board
+      redirect_to board_path(@ticket.board)
     else
       flash[:alert] = "Ticket could not be saved"
       render :new
@@ -17,6 +17,6 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:title, :description, :status)
+    params.require(:ticket).permit(:title, :description, :status, :board_id)
   end
 end
