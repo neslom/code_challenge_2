@@ -17,4 +17,20 @@ RSpec.describe "Dashboard" do
     expect(current_path).to eq(board_path(Board.first))
     expect(page).to have_content("Code Retreat")
   end
+
+  scenario "user sees collection of existing boards" do
+    ["hello", "what", "okay"].each do |word|
+      Board.create(title: word)
+    end
+
+    visit root_path
+
+    ["hello", "what", "okay"].each do |word|
+      expect(page).to have_link(word)
+    end
+
+    click_link_or_button("hello")
+
+    expect(current_path).to eq(board_path(Board.find_by(title: "hello")))
+  end
 end
