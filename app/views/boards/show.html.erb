@@ -1,1 +1,16 @@
 <h3><%= @board.title %> Board</h3>
+
+<%= link_to "Create Ticket", new_ticket_path(board: @board) %>
+
+<br>
+<div class="row">
+  <div class="col-md-3 ticketSection backlog">Backlog</div>
+  <div class="col-md-3 ticketSection currentSprint">
+    Current Sprint
+    <div>
+
+    </div>
+  </div>
+  <div class="col-md-3 ticketSection inProgress">In Progress</div>
+  <div class="col-md-3 ticketSection done">Done</div>
+</div>
