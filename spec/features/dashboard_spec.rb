@@ -15,5 +15,6 @@ RSpec.describe "Dashboard" do
     end.to change { Board.count }.from(0).to(1)
 
     expect(current_path).to eq(board_path(Board.first))
+    expect(page).to have_content("Code Retreat")
   end
 end
