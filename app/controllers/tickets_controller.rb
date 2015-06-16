@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  before_action :find_ticket, only: [:update]
+
   def new
   end
 
@@ -14,9 +16,18 @@ class TicketsController < ApplicationController
     end
   end
 
+  def update
+    @ticket.update(ticket_params)
+    redirect_to :back
+  end
+
   private
 
   def ticket_params
     params.require(:ticket).permit(:title, :description, :status, :board_id)
+  end
+
+  def find_ticket
+    @ticket = Ticket.find_by(id: params[:id])
   end
 end
