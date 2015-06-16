@@ -9,8 +9,9 @@
     <div>
       <% @board.backlogged_tickets.each do |ticket| %>
         <p><%= ticket.title %></p>
+        <p><%= ticket.description %></p>
         <%= form_for(ticket, method: :put) do |f| %>
-          <%= f.select(:status, [["Current Sprint", "Current Sprint"]]) %>
+          <%= f.select(:status, [["Current Sprint", "Current Sprint"], ticket.status]) %>
           <%= f.submit %>
         <% end %>
       <% end %>
@@ -21,8 +22,9 @@
     <div>
       <% @board.current_sprint_tickets.each do |ticket| %>
         <p><%= ticket.title %></p>
+        <p><%= ticket.description %></p>
         <%= form_for(ticket, method: :put) do |f| %>
-          <%= f.select(:status, [["Backlog", "Backlog"], ["In Progress", "In Progress"]]) %>
+          <%= f.select(:status, [["Backlog", "Backlog"], ["In Progress", "In Progress"], ticket.status]) %>
           <%= f.submit %>
         <% end %>
       <% end %>
@@ -33,8 +35,9 @@
     <div>
       <% @board.in_progress_tickets.each do |ticket| %>
         <p><%= ticket.title %></p>
+        <p><%= ticket.description %></p>
         <%= form_for(ticket, method: :put) do |f| %>
-          <%= f.select(:status, [["Current Sprint", "Current Sprint"], ["Done", "Done"]]) %>
+          <%= f.select(:status, [["Current Sprint", "Current Sprint"], ["Done", "Done"], ticket.status]) %>
           <%= f.submit %>
         <% end %>
       <% end %>
@@ -45,8 +48,9 @@
     <div>
       <% @board.done_tickets.each do |ticket| %>
         <p><%= ticket.title %></p>
+        <p><%= ticket.description %></p>
         <%= form_for(ticket, method: :put) do |f| %>
-          <%= f.select(:status, [["In Progress", "In Progress"]]) %>
+          <%= f.select(:status, [["In Progress", "In Progress"], ticket.status]) %>
           <%= f.submit %>
         <% end %>
       <% end %>
