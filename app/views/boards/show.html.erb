@@ -7,7 +7,7 @@
   <div class="col-md-3 ticketSection backlog">
     Backlog
     <div>
-      <% @board.tickets.where(status: "Backlog").each do |ticket| %>
+      <% @board.backlogged_tickets.each do |ticket| %>
         <p><%= ticket.title %></p>
       <% end %>
     </div>
@@ -15,7 +15,9 @@
   <div class="col-md-3 ticketSection currentSprint">
     Current Sprint
     <div>
-
+      <% @board.current_sprint_tickets.each do |ticket| %>
+        <p><%= ticket.title %></p>
+      <% end %>
     </div>
   </div>
   <div class="col-md-3 ticketSection inProgress">
