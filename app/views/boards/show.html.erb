@@ -4,13 +4,26 @@
 
 <br>
 <div class="row">
-  <div class="col-md-3 ticketSection backlog">Backlog</div>
+  <div class="col-md-3 ticketSection backlog">
+    Backlog
+    <div>
+      <% @board.tickets.where(status: "Backlog").each do |ticket| %>
+        <p><%= ticket.title %></p>
+      <% end %>
+    </div>
+  </div>
   <div class="col-md-3 ticketSection currentSprint">
     Current Sprint
     <div>
 
     </div>
   </div>
-  <div class="col-md-3 ticketSection inProgress">In Progress</div>
-  <div class="col-md-3 ticketSection done">Done</div>
+  <div class="col-md-3 ticketSection inProgress">
+    In Progress
+
+  </div>
+  <div class="col-md-3 ticketSection done">
+    Done
+
+  </div>
 </div>

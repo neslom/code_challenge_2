@@ -16,7 +16,9 @@ RSpec.describe "Ticket Creation" do
     click_link_or_button("Create Ticket")
 
     expect(current_path).to eq(board_path(board))
-
     expect(Ticket.first.board).to eq(board)
+    within(".backlog") do
+      expect(page).to have_content(Ticket.first.title)
+    end
   end
 end
